@@ -6,7 +6,7 @@ export default function Home() {
     <div className="container">
       <div className="row mb-4">
         <div className="col-12">
-          <h1 className="display-4 mb-3">Remembering the Victims</h1>
+          <h3 className=" mb-3">Remembering the Victims</h3>
           <p className="lead">
             On New Year's Eve 2025, our community suffered a devastating loss. 
             These are the stories of those we lost, and how you can help their families.

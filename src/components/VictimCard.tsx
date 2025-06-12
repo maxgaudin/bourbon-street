@@ -14,6 +14,7 @@ export default function VictimCard({ victim }: VictimCardProps) {
 
   return (
     <div className="card h-100">
+      <div className="bg-light" style={{ height: '200px' }}></div>
       <div className="card-body">
         <div className="d-flex justify-content-between align-items-start mb-2">
           <h5 className="card-title mb-0">{victim.firstName} {victim.lastName}</h5>
@@ -25,20 +26,22 @@ export default function VictimCard({ victim }: VictimCardProps) {
           {victim.age > 0 ? `${victim.age} years old • ` : ''}{victim.hometown}
         </h6>
         <p className="card-text">{victim.websiteCopy.split('.')[0] + '.'}</p>
-        <div className="progress mb-3">
-          <div 
-            className={`progress-bar ${isDeceased ? 'bg-danger' : 'bg-success'}`}
-            role="progressbar" 
-            style={{ width: victim.percentageOfGoal }}
-            aria-valuenow={parseInt(victim.percentageOfGoal)} 
-            aria-valuemin={0} 
-            aria-valuemax={100}
-          >
-            {victim.percentageOfGoal} of {victim.goal}
+        {victim.donationLink && (
+          <div className="progress mb-3">
+            <div 
+              className={`progress-bar ${isDeceased ? 'bg-danger' : 'bg-success'}`}
+              role="progressbar" 
+              style={{ width: victim.percentageOfGoal }}
+              aria-valuenow={parseInt(victim.percentageOfGoal)} 
+              aria-valuemin={0} 
+              aria-valuemax={100}
+            >
+              {victim.percentageOfGoal} of {victim.goal}
+            </div>
           </div>
-        </div>
+        )}
         <Link href={`/victims/${victim.id}`} className="btn btn-primary">
-          {isDeceased ? 'View Memorial' : 'Support Recovery'}
+          →
         </Link>
       </div>
     </div>

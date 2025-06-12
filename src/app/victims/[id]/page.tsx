@@ -40,26 +40,30 @@ export default async function VictimPage({ params }: { params: { id: string } })
                 {victim.age > 0 ? `${victim.age} years old • ` : ''}{victim.hometown}
               </h2>
               <p className="card-text lead mb-4">{victim.websiteCopy}</p>
-              <div className="progress mb-4">
-                <div 
-                  className={`progress-bar ${statusClass}`}
-                  role="progressbar" 
-                  style={{ width: victim.percentageOfGoal }}
-                  aria-valuenow={parseInt(victim.percentageOfGoal)} 
-                  aria-valuemin={0} 
-                  aria-valuemax={100}
-                >
-                  {victim.percentageOfGoal} of {victim.goal}
-                </div>
-              </div>
-              <a 
-                href={victim.donationLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={`btn btn-lg ${isDeceased ? 'btn-danger' : 'btn-success'}`}
-              >
-                {isDeceased ? 'Donate to Memorial Fund' : 'Support Recovery Fund'}
-              </a>
+              {victim.donationLink && (
+                <>
+                  <div className="progress mb-4">
+                    <div 
+                      className={`progress-bar ${statusClass}`}
+                      role="progressbar" 
+                      style={{ width: victim.percentageOfGoal }}
+                      aria-valuenow={parseInt(victim.percentageOfGoal)} 
+                      aria-valuemin={0} 
+                      aria-valuemax={100}
+                    >
+                      {victim.percentageOfGoal} of {victim.goal}
+                    </div>
+                  </div>
+                  <a 
+                    href={victim.donationLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={`btn btn-lg ${isDeceased ? 'btn-danger' : 'btn-success'}`}
+                  >
+                    {isDeceased ? 'Donate to Memorial Fund' : 'Support Recovery Fund'}
+                  </a>
+                </>
+              )}
             </div>
           </div>
         </div>
