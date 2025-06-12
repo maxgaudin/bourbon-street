@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import BootstrapClient from "@/components/BootstrapClient";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,20 +17,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen bg-gray-50 dark:bg-gray-900`}>
-        <header className="bg-white dark:bg-gray-800 shadow-sm">
-          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+      <body className={inter.className}>
+        <BootstrapClient />
+        <header className="bg-white shadow-sm">
+          <nav className="container py-4">
+            <h1 className="h2 text-dark">
               Bourbon Street Memorial
             </h1>
           </nav>
         </header>
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="container py-4">
           {children}
         </main>
-        <footer className="bg-white dark:bg-gray-800 shadow-sm mt-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <p className="text-center text-gray-600 dark:text-gray-400">
+        <footer className="bg-white shadow-sm mt-4">
+          <div className="container py-4">
+            <p className="text-center text-muted">
               In memory of those we lost on New Year's Eve 2025
             </p>
           </div>
